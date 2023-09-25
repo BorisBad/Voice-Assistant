@@ -15,12 +15,12 @@ def mycallback(recognizer, audio):
 #recognize_google(self, audio_data, key=None, language="en-US", pfilter=0, show_all=False, with_confidence=False):
 
 def main():
-#region WTF?
+# #region WTF?
     db_name = 'test.db'
     db = dbh.create_or_connect_to_db(db_name)
     c = dbh.create_cursor(db)
 
-    dbh.create_table(db,c,'Commands',[1,2])
+    dbh.create_table(db,c,'Commands',[[],[],[],[],[],[]],[('id', 1),('awaited_request', 3),('module',3),('command',3),('last_modified', 4)])
     print(dbh.read_from(db,c,'Commands'))
     print('----------------')
     #request, module, command, last_mod
@@ -42,28 +42,27 @@ def main():
     #rez = subprocess.run(["cd"],stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     #print(rez.stdout.decode())
     
-    os.system('cmd /c '+ items[0][3])
-    #os.system('cmd /c ' + "cd")
 
 
 
 
     
-    print('----------------')
-    dbh.delete_from(db,c,'Commands',[1])
-    print(dbh.read_from(db,c,'Commands'))
-    print('----------------')
+#     print('----------------')
+#     dbh.delete_from(db,c,'Commands',[1])
+#     print(dbh.read_from(db,c,'Commands'))
+#     print('----------------')
 
-    print("Print 'stop' to end")
-    while input() != "stop":
-        print("Print 'stop' to end")
+#     print("Print 'stop' to end")
+#     while input() != "stop":
+#         print("Print 'stop' to end")
 
-    dbh.delete_table(db,c,'Commands')
-    dbh.delete_cursor(c)
-    dbh.close_connection(db)
-#endregion
+#     dbh.delete_table(db,c,'Commands')
+#     dbh.delete_cursor(c)
+#     dbh.close_connection(db)
+
+# #endregion
     
-    
+  print(dbh.check_table_name(input()))  
     
     
     # mic = sr.Microphone()
