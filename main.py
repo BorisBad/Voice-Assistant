@@ -9,7 +9,7 @@ from fuzzywuzzy import fuzz
 from vosk import Model, KaldiRecognizer
 import platform
 
-vosk_path = r"C:\Users\XE\Desktop\Pet projects\va\Voice-Assistant-master\Voice-Assistant-master\vosk-model-small-ru-0.22\vosk-model-small-ru-0.22"
+vosk_path = r"C:\Users\XE\Desktop\Pet projects\Voice asssiatant\vosk-model-small-ru-0.22\vosk-model-small-ru-0.22"
 
 #robot voice
 def play_voice(text: str, ttsEngine: pyttsx3.Engine, voice_name: str):
