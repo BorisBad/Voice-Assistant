@@ -49,7 +49,7 @@ def create_table(db: sqlite3.Connection, cur: sqlite3.Cursor, table_name: str, f
     update_db(db)
 
 def delete_table(db: sqlite3.Connection, cur: sqlite3.Cursor, table_name: str):
-    cur.execute("""DROP TABLE {};""".format(table_name))
+    cur.execute("""DROP TABLE IF EXISTS {};""".format(table_name))
     update_db(db)
 
 #endregion
