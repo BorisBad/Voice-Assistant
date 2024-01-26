@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>choose interaction type</title>
+    <style type='style.css'></style>
+</head>
+<body>
+    <fieldset id="field_rd_btn">
+        <legend class="field-legend" id="field-legend-label">
+            Choose type interaction
+        </legend>
+        <div class="rd-btn-interact" id="rd-btn-text">
+            <input class="inp-radio" type="radio" name="input_type" id="rd_btn_text_input" value="text" checked onclick="change_input_type(id)">
+            <label for="input_type"> Text input</label>
+        </div>
+        <div class="rd-btn-interact" id="3rd-btn-voice">
+            <input class="inp-radio" type="radio" name="input_type" id="rd_btn_voice_input" value="voice_input" onclick="change_input_type(id)">
+            <label for="input_type">Voice input</label>
+        </div>
+    </fieldset>
+    
+    <div id="text_input" class="input">
+        <input type="text" id="text">
+        <button id="text_btn_start" class="text_send">Send request</button>
+    </div>
+    <div id="voice_input" class="input" style="display: none;">
+        <!-- <form name="formA" method="post" enctype="multipart/form-data"> action="submit">
+            <button id="voice_btn_start" class="voice_send">Start recorgind</button>
+        </form> -->
+        <button id="voice_btn_start" class="voice_send">Start recorgind</button>
+        
+       </div>
+    <div class="gallery">
+        <h3>Requests</h3>
+        <div id="requestsList" class="container"></div>
+        <hr />
+        <h3>Respounses</h3>
+        <div id="respounseList" class="container"></div>
+        <hr />
+        
+      </div>
+    <script type="text/javascript"  src="static/scripts/script.js"></script>
+</body>
+ 
+</html>

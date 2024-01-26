@@ -1,4 +1,7 @@
 import sqlite3
+import os
+
+glob_path = os.path.abspath(os.getcwd()) + "\\"
 
 #TO_DO
 #Check for possibelities of sql injections!
@@ -72,6 +75,18 @@ def read_from(db: sqlite3.Connection, cur: sqlite3.Cursor, table_name: str):
     items = cur.fetchall()
     return items
 
+def read_from_by_column(db: sqlite3.Connection, cur: sqlite3.Cursor, table_name: str, column:str, id:str):
+    cmd = """SELECT * FROM {} WHERE id = {};""".format(table_name, int(id))
+    cur.execute(cmd)
+    items = cur.fetchall()
+    #print(cur.execute("""SELECT * FROM Commands WHERE id = 1;""").fetchall())
+    return items
+
+def get_col_names(db: sqlite3.Connection, cur: sqlite3.Cursor, table_name: str):
+    cur.execute("""SELECT * FROM {}.COLUMNS;""".format(table_name))
+    items = cur.fetchall()
+    return items
+
 #Update (by id)
 def update_in(db: sqlite3.Connection, cur: sqlite3.Cursor, table_name: str, values: list):
     cur.execute(
@@ -80,11 +95,11 @@ def update_in(db: sqlite3.Connection, cur: sqlite3.Cursor, table_name: str, valu
     update_db(db)
 
 #Delete
-def delete_from(db: sqlite3.Connection, cur: sqlite3.Cursor, table_name: str, values:list):
+def delete_from_by_id(db: sqlite3.Connection, cur: sqlite3.Cursor, table_name: str, id:str):
     cur.execute(
     """ DELETE FROM {}
     WHERE id = {} ;
-    """.format(table_name, values[0]))
+    """.format(table_name, id))
     update_db(db)
 
 #endregion
